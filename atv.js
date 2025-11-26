@@ -1,55 +1,58 @@
+// index.js - EXECUÇÃO INTERATIVA (RODAR COM 'node index.js')
+
 const prompt = require("prompt-sync")();
-const calculadora = require('./calculadora'); // Importa o módulo de cálculo
+const calculadora = require('./atv'); // Importa as funções de cálculo do atv.js
 
-let encerrar = 0; // 0 = false (falso) / 1 = true (verdadeiro)!!!!
+let fim = 0;
 
-console.log("+-**--+ Bem-vinda(o) +--**-+\n+---+ Calculadora Concisa +---+\n\n");
+console.log("+-**--+ Bem-vinda(o) +--**-+\n+---+ Calculadora +---+\n\n");
 
-while (!encerrar){
-    let num1, num2, res;
-    let opc;
-    let continuar;  
+while (!fim) {
+    let a, b, c;
+    let resposta;
+    let continuar;
 
-    num1 = Number(prompt('Primeiro Número -> '));
+    a = Number(prompt('Número -> '));
 
     console.log("\n[1]Somar / [2]Subtrair / [3]Multiplicar / [4]Dividir \n[5]Potencia / [6]Media / [7]Porcentagem");
-    opc = Number(prompt('Selecione a operação (1-7) -> '));
+    resposta = Number(prompt('-> '));
 
-    num2 = Number(prompt('\nSegundo número -> '))
-    
-    switch(opc){
+    b = Number(prompt('\n2° número -> '));
+
+    switch (resposta) {
         case 1:
-            res = calculadora.somar(num1, num2);
-            console.log(`\n${num1} + ${num2} = ${res}`);
-        break;
+            c = calculadora.somar(a, b);
+            console.log(`\n${a} + ${b} = ${c}`);
+            break;
         case 2:
-            res = calculadora.subtrair(num1, num2);
-            console.log(`\n${num1} - ${num2} = ${res}`);
-        break;
+            c = calculadora.subtrair(a, b);
+            console.log(`\n${a} - ${b} = ${c}`);
+            break;
         case 3:
-            res = calculadora.multiplicar(num1, num2);
-            console.log(`\n${num1} * ${num2} = ${res}`);
-        break;
+            c = calculadora.multiplicar(a, b);
+            console.log(`\n${a} * ${b} = ${c}`);
+            break;
         case 4:
-            if (num2 === 0) {
-                console.log("\nErro: Divisão por zero não é permitida.");
-                break;
+            // Adicionado tratamento de erro para divisão por zero
+            if (b === 0) {
+                 console.log("\nErro: Divisão por zero não é permitida.");
+                 break;
             }
-            res = calculadora.dividir(num1, num2);
-            console.log(`\n${num1} / ${num2} = ${res}`);
-        break;
+            c = calculadora.dividir(a, b);
+            console.log(`\n${a} / ${b} = ${c}`);
+            break;
         case 5:
-            res = calculadora.elevarAPotencia(num1, num2);
-            console.log(`\n${num1} ^${num2} = ${res}`);
-        break;
+            c = calculadora.potencia(a, b);
+            console.log(`\n${a} ^${b} = ${c}`);
+            break;
         case 6:
-            res = calculadora.calcularMedia(num1, num2);
-            console.log(`\n(${num1} + ${num2}) / 2 = ${res}`);
-        break;
+            c = calculadora.media(a, b);
+            console.log(`\n${a} + ${b} / 2 = ${c}`);
+            break;
         case 7:
-            res = calculadora.calcularPorcentagem(num1, num2);
-            console.log(`\n${num1}% de ${num2} = ${res}`);
-        break;
+            c = calculadora.porcentagem(a, b);
+            console.log(`\n${a}% de ${b} = ${c}`);
+            break;
         default:
             console.log("\nOpção de operação inválida. Tente novamente.");
     }
@@ -58,37 +61,40 @@ while (!encerrar){
     continuar = prompt("-> ").toLowerCase();
     
     if (continuar == "nao" || continuar == "n" || continuar == "nn") {
-        encerrar = 1;
+        fim = 1;
         console.log("\nObrigada(o) por usar a calculadora! 👋");
     }
 }
 
-function somar(n1, n2){
-    return n1 + n2
+// atv.js - LÓGICA PURA E TESTÁVEL
+
+function somar(a, b) {
+    return a + b;
 }
 
-function subtrair(n1, n2){
-    return n1 - n2
+function subtrair(a, b) {
+    return a - b;
 }
 
-function multiplicar(n1, n2){
-    return n1 * n2
+function multiplicar(a, b) {
+    return a * b;
 }
 
-function dividir(n1, n2){
-    return n1 / n2
+function dividir(a, b) {
+    return a / b;
 }
 
-function elevarAPotencia(base, expoente){
-    return base ** expoente
+function potencia(a, b) {
+    return a ** b;
 }
 
-function calcularMedia(v1, v2){
-    return (v1 + v2) / 2
+function media(a, b) {
+    return (a + b) / 2;
 }
 
-function calcularPorcentagem(percentual, total){
-    return (percentual * total) / 100
+function porcentagem(a, b) {
+    return (a * b) / 100;
 }
 
-module.exports = {somar, subtrair, multiplicar, dividir, elevarAPotencia, calcularMedia, calcularPorcentagem};
+// Exporta todas as funções com os nomes curtos que seu código interativo usa.
+module.exports = { somar, subtrair, multiplicar, dividir, potencia, media, porcentagem };
