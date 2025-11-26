@@ -1,9 +1,7 @@
-// index.js - EXECUÇÃO INTERATIVA (RODAR COM 'node index.js')
-
 const prompt = require("prompt-sync")();
 const calculadora = require('./calculadora'); // Importa o módulo de cálculo
 
-let encerrar = 0; // 0 = false (falso) / 1 = true (verdadeiro)
+let encerrar = 0; // 0 = false (falso) / 1 = true (verdadeiro)!!!!
 
 console.log("+-**--+ Bem-vinda(o) +--**-+\n+---+ Calculadora Concisa +---+\n\n");
 
@@ -64,13 +62,7 @@ while (!encerrar){
         console.log("\nObrigada(o) por usar a calculadora! 👋");
     }
 }
-// --- Funções de Cálculo pog
 
-// calculadora.js - LÓGICA PURA E TESTÁVEL
-
-/**
- * Funções de Cálculo (Lógica Pura)
- */
 function somar(n1, n2){
     return n1 + n2
 }
@@ -99,5 +91,4 @@ function calcularPorcentagem(percentual, total){
     return (percentual * total) / 100
 }
 
-// Exporta todas as funções para que outros arquivos (como o teste) possam usá-las
 module.exports = {somar, subtrair, multiplicar, dividir, elevarAPotencia, calcularMedia, calcularPorcentagem};

@@ -1,8 +1,6 @@
-// calculadora.test.js - RODAR COM 'npm test'
+const calculadora = require('./atv'); 
 
-const calculadora = require('./calculadora'); // Importa o módulo de cálculo
-
-describe('🧪 Testes de Unidade para a Calculadora', () => {
+describe('Testes de Unidade para a Calculadora!!!', () => {
 
     test('Somar 5 + 15 deve ser 20', () => {
         expect(calculadora.somar(5, 15)).toBe(20);
@@ -20,22 +18,18 @@ describe('🧪 Testes de Unidade para a Calculadora', () => {
         expect(calculadora.dividir(15, 5)).toBe(3);
     });
     
-    // Testa a Potência com a função 'elevarAPotencia'
     test('Potência: 5^3 deve ser 125', () => {
         expect(calculadora.elevarAPotencia(5, 3)).toBe(125); 
     });
 
-    // Testa a Média com a função 'calcularMedia'
     test('Média: (5 e 15) deve ser 10', () => {
         expect(calculadora.calcularMedia(5, 15)).toBe(10);
     });
 
-    // Testa a Porcentagem com a função 'calcularPorcentagem'
     test('Porcentagem: 5% de 15 deve ser 0.75', () => {
         expect(calculadora.calcularPorcentagem(5, 15)).toBe(0.75);
     });
 
-    // Teste de caso extremo: Divisão por Zero
     test('Deve retornar Infinity ao dividir por zero', () => {
         expect(calculadora.dividir(10, 0)).toBe(Infinity);
     });
