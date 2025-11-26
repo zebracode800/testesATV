@@ -1,7 +1,6 @@
-// index.js - EXECUÇÃO INTERATIVA (RODAR COM 'node index.js')
 
 const prompt = require("prompt-sync")();
-const calculadora = require('./atv'); // Importa as funções de cálculo do atv.js
+const calculadora = require('./atv'); 
 
 let fim = 0;
 
@@ -33,7 +32,6 @@ while (!fim) {
             console.log(`\n${a} * ${b} = ${c}`);
             break;
         case 4:
-            // Adicionado tratamento de erro para divisão por zero
             if (b === 0) {
                  console.log("\nErro: Divisão por zero não é permitida.");
                  break;
@@ -66,8 +64,6 @@ while (!fim) {
     }
 }
 
-// atv.js - LÓGICA PURA E TESTÁVEL
-
 function somar(a, b) {
     return a + b;
 }
@@ -96,5 +92,4 @@ function porcentagem(a, b) {
     return (a * b) / 100;
 }
 
-// Exporta todas as funções com os nomes curtos que seu código interativo usa.
 module.exports = { somar, subtrair, multiplicar, dividir, potencia, media, porcentagem };
