@@ -19,15 +19,15 @@ describe('Testes de Unidade para a Calculadora!!!', () => {
     });
     
     test('Potência: 5^3 deve ser 125', () => {
-        expect(calculadora.elevarAPotencia(5, 3)).toBe(125); 
+        expect(calculadora.potencia(5, 3)).toBe(125); 
     });
 
     test('Média: (5 e 15) deve ser 10', () => {
-        expect(calculadora.calcularMedia(5, 15)).toBe(10);
+        expect(calculadora.media(5, 15)).toBe(10);
     });
 
     test('Porcentagem: 5% de 15 deve ser 0.75', () => {
-        expect(calculadora.calcularPorcentagem(5, 15)).toBe(0.75);
+        expect(calculadora.porcentagem(5, 15)).toBe(0.75);
     });
 
     test('Deve retornar Infinity ao dividir por zero', () => {
