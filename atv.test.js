@@ -1,32 +1,42 @@
-const calculadora = require('./atv');
+// calculadora.test.js - RODAR COM 'npm test'
 
-describe('Testes Simples para a Calculadora', function(){
-    
-    test('1. Somar 5 + 15 deve ser 20', function(){
+const calculadora = require('./calculadora'); // Importa o módulo de cálculo
+
+describe('🧪 Testes de Unidade para a Calculadora', () => {
+
+    test('Somar 5 + 15 deve ser 20', () => {
         expect(calculadora.somar(5, 15)).toBe(20);
     });
 
-    test('2. Subtrair 15 - 5 deve ser 10', function(){
+    test('Subtrair 15 - 5 deve ser 10', () => {
         expect(calculadora.subtrair(15, 5)).toBe(10);
     });
 
-    test('3. Multiplicar 5 * 3 deve ser 15', function(){
+    test('Multiplicar 5 * 3 deve ser 15', () => {
         expect(calculadora.multiplicar(5, 3)).toBe(15);
     });
 
-    test('4. Dividir 15 / 5 deve ser 3', function(){
+    test('Dividir 15 / 5 deve ser 3', () => {
         expect(calculadora.dividir(15, 5)).toBe(3);
     });
-
-    test('5. Potência de 5^3 deve ser 125', function(){
-        expect(calculadora.potencia(5, 3)).toBe(125);
+    
+    // Testa a Potência com a função 'elevarAPotencia'
+    test('Potência: 5^3 deve ser 125', () => {
+        expect(calculadora.elevarAPotencia(5, 3)).toBe(125); 
     });
 
-    test('6. Média de 5 e 15 deve ser 10', function(){
-        expect(calculadora.media(5, 15)).toBe(10);
+    // Testa a Média com a função 'calcularMedia'
+    test('Média: (5 e 15) deve ser 10', () => {
+        expect(calculadora.calcularMedia(5, 15)).toBe(10);
     });
 
-    test('7. Porcentagem (5% de 15) deve ser 0.75', function(){
-        expect(calculadora.porcentagem(5, 15)).toBe(0.75);
+    // Testa a Porcentagem com a função 'calcularPorcentagem'
+    test('Porcentagem: 5% de 15 deve ser 0.75', () => {
+        expect(calculadora.calcularPorcentagem(5, 15)).toBe(0.75);
+    });
+
+    // Teste de caso extremo: Divisão por Zero
+    test('Deve retornar Infinity ao dividir por zero', () => {
+        expect(calculadora.dividir(10, 0)).toBe(Infinity);
     });
 });
