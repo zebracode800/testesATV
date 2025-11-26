@@ -1,4 +1,4 @@
-const calculadora = require('./atv'); 
+const calculadora = require("./calculadora");
 
 describe('Testes de Unidade para a Calculadora!!!', () => {
 

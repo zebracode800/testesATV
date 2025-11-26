@@ -1,6 +1,5 @@
-
 const prompt = require("prompt-sync")();
-const calculadora = require('./atv'); 
+const calculadora = require('./calculadora'); 
 
 let fim = 0;
 
@@ -13,7 +12,8 @@ while (!fim) {
 
     a = Number(prompt('Número -> '));
 
-    console.log("\n[1]Somar / [2]Subtrair / [3]Multiplicar / [4]Dividir \n[5]Potencia / [6]Media / [7]Porcentagem");
+    console.log("\n[1]Somar / [2]Subtrair / [3]Multiplicar / [4]Dividir");
+    console.log("[5]Potencia / [6]Media / [7]Porcentagem");
     resposta = Number(prompt('-> '));
 
     b = Number(prompt('\n2° número -> '));
@@ -33,8 +33,8 @@ while (!fim) {
             break;
         case 4:
             if (b === 0) {
-                 console.log("\nErro: Divisão por zero não é permitida.");
-                 break;
+                console.log("\nErro: Divisão por zero não é permitida.");
+                break;
             }
             c = calculadora.dividir(a, b);
             console.log(`\n${a} / ${b} = ${c}`);
@@ -63,33 +63,3 @@ while (!fim) {
         console.log("\nObrigada(o) por usar a calculadora! 👋");
     }
 }
-
-function somar(a, b) {
-    return a + b;
-}
-
-function subtrair(a, b) {
-    return a - b;
-}
-
-function multiplicar(a, b) {
-    return a * b;
-}
-
-function dividir(a, b) {
-    return a / b;
-}
-
-function potencia(a, b) {
-    return a ** b;
-}
-
-function media(a, b) {
-    return (a + b) / 2;
-}
-
-function porcentagem(a, b) {
-    return (a * b) / 100;
-}
-
-module.exports = { somar, subtrair, multiplicar, dividir, potencia, media, porcentagem };
