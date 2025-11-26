@@ -1,0 +1,23 @@
+{
+  "name": "testesatv",
+  "version": "1.0.0",
+  "main": "atv.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zebracode800/testesATV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zebracode800/testesATV/issues"
+  },
+  "homepage": "https://github.com/zebracode800/testesATV#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  },
+  "description": ""
+}
